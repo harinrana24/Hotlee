@@ -13,6 +13,7 @@ import ShowMore from "./PAges/ShowMore";
 import PaymentPage from "./PAges/PaymentPage";
 import Reservation from "./components/Reservation";
 import SuccessOrder from "./PAges/SuccessOrder";
+import ReservationsList from "./components/Reservations";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -27,6 +28,8 @@ function App() {
         <Route path="/team" element={<Teams />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/reservations" element={<ReservationsList/>}/>
+
         <Route path="/product/:id" element={<ShowMore />} />
         <Route path="/payment" element={<PaymentPage />} />{" "}
         <Route

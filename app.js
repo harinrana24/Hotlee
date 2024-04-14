@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { dbconnection } from "./databaseConnection/dbconnection.js"
 import ErrorHandler, { errorMiddleware } from "./eroor/error.js";
 import reservationRoute from "./route/reservationroute.js"
+import { Reservation } from "./models/reservSchema.js";
 import path from "path" 
 import { fileURLToPath } from "url";
 
@@ -30,6 +31,17 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
 app.use("/reservation", reservationRoute)
+
+// Get all reservations
+app.get('/reservations', async (req, res) => {
+    try {
+        const reservations = await Reservation.find({}).sort({ _id: -1 });  // Sorting by start date
+        res.json(reservations);
+    } catch (error) {
+        res.status(500).send("Error retrieving reservations: " + error.message);
+    }
+});
+
 dbconnection();
 
 
