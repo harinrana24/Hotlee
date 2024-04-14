@@ -1,51 +1,26 @@
+// Reservations.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const ReservationsList = () => {
-    const [reservationData, setReservationData] = useState({
-        reservations: [],
-        filteredReservations: [],
-    });
+    const [reservations, setReservations] = useState([]);
     const [filter, setFilter] = useState('');
     const [error, setError] = useState('');
 
     useEffect(() => {
-        const fetchReservations = async () => {
-            try {
-                const response = await axios.get('https://hotlee.onrender.com/reservations');
-                setReservationData(prev => ({
-                    ...prev,
-                    reservations: response.data,
-                    filteredReservations: response.data, // Initialize filteredReservations
-                }));
-            } catch (error) {
+        axios.get('https://hotlee.onrender.com/reservations')
+            .then(response => {
+                setReservations(response.data);
+                console.log(response.data)
+            })
+            .catch(error => {
                 console.log('Failed to fetch reservations:', error);
                 setError('Failed to fetch reservations');
-            }
-        };
+                console.log(response.data)
 
-        fetchReservations();
+            });
     }, []);
-
-    const handleFilterChange = (event) => {
-        const value = event.target.value;
-        setFilter(value);
-        const filtered = value ? reservationData.reservations.filter(reservation =>
-            reservation.firstName.toLowerCase().includes(value.toLowerCase()) ||
-            reservation.lastName.toLowerCase().includes(value.toLowerCase()) ||
-            reservation.email.toLowerCase().includes(value.toLowerCase()) ||
-            reservation.phone.includes(value)
-        ) : reservationData.reservations;
-
-        setReservationData(prev => ({
-            ...prev,
-            filteredReservations: filtered,
-        }));
-    };
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
 
     return (
         <div className='bgfor'>
@@ -55,30 +30,25 @@ const ReservationsList = () => {
                 className="reservation-input"
                 placeholder="Filter by name, email, or phone"
                 value={filter}
-                onChange={handleFilterChange}
+                onChange={(event) => setFilter(event.target.value)}
             />
             <div className="reservations-container">
-                {reservationData.filteredReservations.length > 0 ? (
-                    reservationData.filteredReservations.map((reservation, index) => (
-                        <ReservationCard key={reservation._id} reservation={reservation} index={index} />
+                {Array.isArray(reservations) && reservations.length > 0 ? (
+                    reservations.map(reservation => (
+                        <div key={reservation._id} className={`reservation-card ${reservation._id % 3 === 0 ? 'apple' : reservation._id % 3 === 1 ? 'banana' : 'cherry'}`}>
+                            <p>Name: {reservation.firstName} {reservation.lastName}</p>
+                            <p>Date: {reservation.date}</p>
+                            <p>Time: {reservation.time}</p>
+                            <p>Email: {reservation.email}</p>
+                            <p>Guests: {reservation.guest}</p>
+                            <p>Phone: {reservation.phone}</p>
+                        </div>
                     ))
                 ) : (
-                    <p>No reservations found.</p>
+                    <div>No reservations found</div>
                 )}
             </div>
-        </div>
-    );
-};
-
-const ReservationCard = ({ reservation, index }) => {
-    return (
-        <div className={`reservation-card ${index % 3 === 0 ? 'apple' : index % 3 === 1 ? 'banana' : 'cherry'}`}>
-            <p>Name: {reservation.firstName} {reservation.lastName}</p>
-            <p>Date: {reservation.date}</p>
-            <p>Time: {reservation.time}</p>
-            <p>Email: {reservation.email}</p>
-            <p>Guests: {reservation.guest}</p>
-            <p>Phone: {reservation.phone}</p>
+            {error && <div>Error: {error}</div>}
         </div>
     );
 };
