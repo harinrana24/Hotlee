@@ -13,10 +13,11 @@ const ReservationsList = () => {
         const fetchReservations = async () => {
             try {
                 const response = await axios.get('https://hotlee.onrender.com/reservations');
-                setReservationData({
+                setReservationData(prev => ({
+                    ...prev,
                     reservations: response.data,
-                    filteredReservations: response.data,
-                });
+                    filteredReservations: response.data, // Initialize filteredReservations
+                }));
             } catch (error) {
                 console.log('Failed to fetch reservations:', error);
                 setError('Failed to fetch reservations');

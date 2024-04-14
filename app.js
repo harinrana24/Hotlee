@@ -17,13 +17,13 @@ app.use(cors({
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials:true
 }))
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-app.use(express.static(path.join(__dirname, "/client/dist")))
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
+// app.use(express.static(path.join(__dirname, "/client/dist")))
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname,"/client/dist/index.html"))
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname,"/client/dist/index.html"))
+// })
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
