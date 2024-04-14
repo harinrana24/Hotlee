@@ -17,8 +17,8 @@ const ReservationsList = () => {
                     reservations: response.data,
                     filteredReservations: response.data,
                 });
-            } catch (error) {
-                console.error('Failed to fetch reservations:', errorr);
+            } catch (errorr) {
+                console.log('Failed to fetch reservations:', errorr);
                 setError('Failed to fetch reservations');
             }
         };
