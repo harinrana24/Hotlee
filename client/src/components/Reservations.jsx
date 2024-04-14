@@ -38,8 +38,9 @@ const ReservationsList = () => {
 
         setReservationData(prev => ({
             ...prev,
-            filteredReservations: filtered,
+            filteredReservations: filtered instanceof Array ? filtered : [],
         }));
+        
     };
 
     if (errorr) {
