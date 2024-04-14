@@ -7,7 +7,7 @@ const ReservationsList = () => {
         filteredReservations: [],
     });
     const [filter, setFilter] = useState('');
-    const [error, setError] = useState('');
+    const [errorr, setError] = useState('');
 
     useEffect(() => {
         const fetchReservations = async () => {
@@ -18,7 +18,7 @@ const ReservationsList = () => {
                     filteredReservations: response.data,
                 });
             } catch (error) {
-                console.error('Failed to fetch reservations:', error);
+                console.error('Failed to fetch reservations:', errorr);
                 setError('Failed to fetch reservations');
             }
         };
@@ -43,7 +43,7 @@ const ReservationsList = () => {
     };
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div>Error: {errorr}</div>;
     }
 
     return (
