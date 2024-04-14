@@ -42,7 +42,7 @@ const ReservationsList = () => {
         }));
     };
 
-    if (error) {
+    if (errorr) {
         return <div>Error: {errorr}</div>;
     }
 
