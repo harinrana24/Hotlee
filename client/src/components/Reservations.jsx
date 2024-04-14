@@ -7,7 +7,7 @@ const ReservationsList = () => {
         filteredReservations: [],
     });
     const [filter, setFilter] = useState('');
-    const [errorr, setError] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchReservations = async () => {
@@ -17,8 +17,8 @@ const ReservationsList = () => {
                     reservations: response.data,
                     filteredReservations: response.data,
                 });
-            } catch (errorr) {
-                console.log('Failed to fetch reservations:', errorr);
+            } catch (error) {
+                console.log('Failed to fetch reservations:', error);
                 setError('Failed to fetch reservations');
             }
         };
@@ -38,17 +38,16 @@ const ReservationsList = () => {
 
         setReservationData(prev => ({
             ...prev,
-            filteredReservations: filtered instanceof Array ? filtered : [],
+            filteredReservations: filtered,
         }));
-        
     };
 
-    if (errorr) {
-        return <div>Error: {errorr}</div>;
+    if (error) {
+        return <div>Error: {error}</div>;
     }
 
     return (
-        <div className='bgfor' >
+        <div className='bgfor'>
             <h1>Reservation List</h1>
             <input
                 type="text"
@@ -60,19 +59,25 @@ const ReservationsList = () => {
             <div className="reservations-container">
                 {reservationData.filteredReservations.length > 0 ? (
                     reservationData.filteredReservations.map((reservation, index) => (
-                        <div key={reservation._id} className={`reservation-card ${index % 3 === 0 ? 'apple' : index % 3 === 1 ? 'banana' : 'cherry'}`}>
-                            <p>Name: {reservation.firstName} {reservation.lastName}</p>
-                            <p>Date: {reservation.date}</p>
-                            <p>Time: {reservation.time}</p>
-                            <p>Email: {reservation.email}</p>
-                            <p>Guests: {reservation.guest}</p>
-                            <p>Phone: {reservation.phone}</p>
-                        </div>
+                        <ReservationCard key={reservation._id} reservation={reservation} index={index} />
                     ))
                 ) : (
                     <p>No reservations found.</p>
                 )}
             </div>
+        </div>
+    );
+};
+
+const ReservationCard = ({ reservation, index }) => {
+    return (
+        <div className={`reservation-card ${index % 3 === 0 ? 'apple' : index % 3 === 1 ? 'banana' : 'cherry'}`}>
+            <p>Name: {reservation.firstName} {reservation.lastName}</p>
+            <p>Date: {reservation.date}</p>
+            <p>Time: {reservation.time}</p>
+            <p>Email: {reservation.email}</p>
+            <p>Guests: {reservation.guest}</p>
+            <p>Phone: {reservation.phone}</p>
         </div>
     );
 };
