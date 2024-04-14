@@ -17,13 +17,11 @@ app.use(cors({
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials:true
 }))
-
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 app.use(express.static(path.join(__dirname, "/client/dist")))
 
-
-app.get("*", (res,req) => {
+app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname,"/client/dist/index.html"))
 })
 
