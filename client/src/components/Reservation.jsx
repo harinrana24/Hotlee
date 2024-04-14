@@ -40,7 +40,7 @@ function Reservation() {
 
     try {
       const { data } = await axios.post(
-        "https://localhost:4000/reservation/send",
+        "https://hotlee.onrender.com/reservation/send",
         { firstName, lastName, email, date, time: convertedTime, phone, guest },
         {
           headers: {
