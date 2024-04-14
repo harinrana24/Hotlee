@@ -1,0 +1,140 @@
+/* PaymentPage.css */
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.payment-form {
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.payment-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.payment-form input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid black;
+}
+
+.payment-form .half-width {
+  width: 48%;
+}
+
+.payment-form .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-form .button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block; /* Changed from inline-block to block */
+  font-size: 16px;
+  margin: 20px auto; /* Updated margin to auto for left and right */
+  cursor: pointer;
+}
+
+.payment-form .button:hover {
+  background-color: #45a049;
+}
+
+.payment-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.button-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button CSS */
+.CartBtn {
+  width: 140px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
