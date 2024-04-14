@@ -12,7 +12,7 @@ const ReservationsList = () => {
     useEffect(() => {
         const fetchReservations = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/reservations');
+                const response = await axios.get('https://hotlee.onrender.com/reservations');
                 setReservationData({
                     reservations: response.data,
                     filteredReservations: response.data,
