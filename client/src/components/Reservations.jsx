@@ -1,5 +1,3 @@
-// Reservations.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -9,18 +7,25 @@ const ReservationsList = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        axios.get('https://hotlee.onrender.com/reservations')
-            .then(response => {
+        const fetchReservations = async () => {
+            try {
+                const response = await axios.get('https://hotlee.onrender.com/reservations');
                 setReservations(response.data);
-                console.log(response.data)
-            })
-            .catch(error => {
-                console.log('Failed to fetch reservations:', error);
+            } catch (error) {
                 setError('Failed to fetch reservations');
-                console.log(response.data)
+            }
+        };
 
-            });
+        fetchReservations();
     }, []);
+
+    // Filter reservations based on user input
+    const filteredReservations = reservations.filter(reservation =>
+        reservation.firstName.toLowerCase().includes(filter.toLowerCase()) ||
+        reservation.lastName.toLowerCase().includes(filter.toLowerCase()) ||
+        reservation.email.toLowerCase().includes(filter.toLowerCase()) ||
+        reservation.phone.includes(filter)
+    );
 
     return (
         <div className='bgfor'>
@@ -33,8 +38,8 @@ const ReservationsList = () => {
                 onChange={(event) => setFilter(event.target.value)}
             />
             <div className="reservations-container">
-                {Array.isArray(reservations) && reservations.length > 0 ? (
-                    reservations.map(reservation => (
+                {filteredReservations.length > 0 ? (
+                    filteredReservations.map(reservation => (
                         <div key={reservation._id} className={`reservation-card ${reservation._id % 3 === 0 ? 'apple' : reservation._id % 3 === 1 ? 'banana' : 'cherry'}`}>
                             <p>Name: {reservation.firstName} {reservation.lastName}</p>
                             <p>Date: {reservation.date}</p>

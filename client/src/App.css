@@ -1686,7 +1686,8 @@ h1 + h5 {
     width: auto;
   }
 }
-/* reservations  */\.reservations-container {
+/* reservations  */
+.reservations-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three column layout */
     gap: 20px; /* Space between cards */
