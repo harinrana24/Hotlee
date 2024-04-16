@@ -6,7 +6,7 @@ function Team() {
     <div className="container">
         <div className="heading_section">
             <h1 className='heading' >OUR TEAM</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum alias, beatae hic quia aliquid assumenda, magni excepturi vero aspernatur, deleniti accusamus totam?
+            <p>Our team at Foody Flames is a dedicated group of culinary professionals, working together to deliver exceptional dining experiences with passion and expertise
             </p>
             <div className="team_container">
                 {

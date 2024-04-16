@@ -12,17 +12,9 @@ const About = () => {
           </div>
 
           <p className="mid">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            exercitationem ex doloribus natus aliquam perspiciatis illum dolor
-            rem dolores id sint odit possimus, assumenda dolorum similique
-            nostrum quia Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Odio sunt culpa amet quos deserunt sapiente ratione ad
-            reiciendis. Ducimus, debitis! praesentium ullam, repudiandae
-            pariatur beatae delectus ipsum? Assumenda ad doloribus deserunt
-            nihil ipsa, porro repellat ratione, qui amet temporibus non atque
-            explicabo?{" "}
+          In the heart of every kitchen, there's a captivating spectacle: the dance of foody flames. These flames are more than just sources of heat; they're the catalysts of culinary creativity, transforming raw ingredients into mouthwatering dishes that delight the senses. At Foody Flames, we embrace the power of these flames to elevate the dining experience. Our chefs skillfully wield their expertise, harnessing the energy of the flames to craft dishes that are both innovative and delicious. From the gentle simmer of sauces to the intense sear of meats, every dish is infused with the unmistakable essence of foody flames. Join us on a culinary journey where flavor reigns supreme and every bite tells a story. Experience the magic of foody flames at Foody Flames, where every meal is a celebration of taste and tradition.{" "}
           </p>
-          <Link to={"/"}>
+          <Link to={"/productlist"}>
             Explore Our Menu{" "}
             <span>
               <HiOutlineArrowNarrowRight />

@@ -1104,14 +1104,13 @@ footer .container .banner .right {
   display: flex;
   /* justify-content: center; */
   height: 100vh;
-  line-height: 2.5;
+  line-height: 2;
   flex-direction: column;
 }
 
 .success .containeer {
-  margin: 25px auto;
+  margin: auto;
    width: 850px;
-  max-height: 650px;
   text-align: center;
 }
 

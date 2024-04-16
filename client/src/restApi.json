@@ -6,19 +6,19 @@
           "id": 1,
           "image": "./quality_food.svg",
           "title": "QUALITY FOOD",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis repellendus officia qui repellat."
+          "description": "In the heart of every kitchen, there's a captivating spectacle: the dance of foody flames, transforming raw ingredients into mouthwatering dishes that delight the senses."
         },
         {
           "id": 2,
           "image": "./super_taste.svg",
           "title": "SUPER TASTE",
-          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing sit amet elit. Sit voluptates quaerat pariatur."
+          "description": "Our chefs at Foody Flames are masters of their craft, skilled in harnessing the energy of foody flames to create dishes that celebrate the artistry of cooking."
         },
         {
           "id": 3,
           "image": "./fast_delivery.svg",
           "title": "FAST DELIVERY",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis repellendus officia qui repellat."
+          "description": "Embark on a culinary adventure at Foody Flames, where every dish tells a story, offering a diverse array of options to suit every palate, experiencing the magic of foody flames firsthand."
         }
       ],
       "dishes": [
