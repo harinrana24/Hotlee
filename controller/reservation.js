@@ -48,12 +48,21 @@ const send_reservation = async (req, res, next) => {
     process.env.TWILIO_ACCOUNT_AUTH
   );
 
+<<<<<<< HEAD
  //  Ensure 'phone' is used here instead of 'number' which was undefined
   client.messages.create({
     from: process.env.TWILIO_ACCOUNT_NUMBER,
     to: phone,
     body: `Hello ${firstName} ${lastName}! Your table at Foody Flames Restaurant is confirmed for ${date} at ${convertedtime}, for ${guest} guests. Address: 425 bloor street W,Toronto. For changes, call us at +1(289)8891440. We look forward to welcoming you!`
   }).then(message => console.log(message.id)).catch(error => console.error(error));
+=======
+  //  Ensure 'phone' is used here instead of 'number' which was undefined
+  client.messages.create({
+     from: process.env.TWILIO_ACCOUNT_NUMBER,
+     to: phone,
+     body: `Hello ${firstName} ${lastName}! Your table at Foody Flames Restaurant is confirmed for ${date} at ${convertedtime}, for ${guest} guests. Address: 425 bloor street W,Toronto. For changes, call us at +1(289)8891440. We look forward to welcoming you!`
+   }).then(message => console.log(message.id)).catch(error => console.error(error));
+>>>>>>> 735a53b50399d130a518b65578c6ae75858dc529
 
   // fOR EMAIL
   var transporter = nodemailer.createTransport({
